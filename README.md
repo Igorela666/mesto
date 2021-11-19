@@ -32,3 +32,5 @@
 ### JavaScript
 
 * Сделан открывающейся и закрывающейся pop-up с редактированию данных.
+
+* https://igorela666.github.io/mesto/
