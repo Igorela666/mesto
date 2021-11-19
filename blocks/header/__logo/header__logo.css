@@ -1,0 +1,23 @@
+.header__logo {
+   width: 142px;
+   height: 33px;
+   transition: 0.5s ease;
+}
+
+
+.header__logo:hover {
+   opacity: 0.5;
+ }
+
+@media screen and (max-width: 1000px) {
+   .header__logo {
+     padding-left: 27px;
+   }
+}
+
+@media screen and (max-width: 400px) {
+   .header__logo {
+     width: 103.74px;
+     height: 24.4px;
+   }
+}
