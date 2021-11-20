@@ -9,6 +9,11 @@
    cursor: pointer;
    transition: 0.5s ease;
    padding: 0;
+   background-image: url(../../../images/addButton.svg);
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: 22px;
+   cursor: pointer;
 }
    
 .profile__add-button:hover {
@@ -20,6 +25,7 @@
    .profile__add-button {
      min-width: 282px;
      margin-top: 29px;
+     background-size: 16px;
    }
 }
  
