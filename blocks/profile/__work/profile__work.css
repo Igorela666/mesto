@@ -1,6 +1,7 @@
 .profile__work {
    font-size: 18px;
    line-height: 1.22;
+   font-weight: 400;
    margin: 0;
    text-overflow: ellipsis;
    white-space: nowrap;
@@ -12,7 +13,7 @@
 @media screen and (max-width: 700px) {
    .profile__work {
       font-size: 14px;
-      line-height: 1.2;
+      line-height: 17px;
       text-align: center;
    }
 }
