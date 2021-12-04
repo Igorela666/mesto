@@ -1,4 +1,4 @@
-.popup__close-ikon {
+.popup__cloce-icon {
    background-image: url(../../../images/closeIcon.svg);
    position: absolute;
    margin: 0;
@@ -16,13 +16,13 @@
    transition: 0.5s ease;
 }
    
-.popup__close-ikon:hover {
+.popup__cloce-icon:hover {
    opacity: 0.6;
 }
 
 
 @media screen and (max-width: 574px) {
-   .popup__close-ikon {
+   .popup__cloce-icon {
      width: 20px;
      height: 20px;
      top: -16px;
