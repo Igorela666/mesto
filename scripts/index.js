@@ -24,12 +24,15 @@ const initialCards = [
      link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
    }
  ]; 
+
+const body = document.querySelector('.page');
+
 const editButton = document.querySelector('.profile__edit-button');
 const addButton = document.querySelector('.profile__add-button');
+const popups = document.querySelectorAll('.popup')
 
-const popupEditCloseButton = document.querySelector('.popup__cloce-icon_place_popupEdit');
-const popupAddCloseButton = document.querySelector('.popup__cloce-icon_place_popupAdd');
-const popupImageCloseButton = document.querySelector('.popup__cloce-icon_place_popupImage');
+const popupOverLay = document.querySelectorAll('.popup__overlay')
+const CloseButton = document.querySelectorAll('.popup__cloce-icon');
 
 const formEdit = document.querySelector('.popup__container_place_popupEdit');
 const formAdd = document.querySelector('.popup__container_place_popupAdd');
@@ -43,15 +46,17 @@ const profileWork = document.querySelector('.profile__work');
 const mestoImput = document.querySelector('.popup__input_type_mesto');
 const imageImput = document.querySelector('.popup__input_type_image');
 
-const popupAdd = document.querySelector('.popup_add');
-const popupEdit = document.querySelector('.popup_edit');
-const popupImage = document.querySelector('.popup_image');
+const popupAdd = document.querySelector('.popup__add');
+const popupButtonAdd = popupAdd.querySelector('.popup__button')
+const popupEdit = document.querySelector('.popup__edit');
+const popupImage = document.querySelector('.popup__image');
+
+const placeContainer = document.querySelector('.place'); // контейнер для карточек
+const template = document.querySelector('.template').content; // карточка
 
 const popupImagePicture = document.querySelector('.popup__image-picture');
 const popupImageCaption = document.querySelector('.popup__image-caption');
 
-const placeContainer = document.querySelector('.place'); // контейнер для карточек
-const template = document.querySelector('.template').content; // карточка
 
 
 function hanldleAddFormSubmit (evt) {
@@ -63,7 +68,10 @@ function hanldleAddFormSubmit (evt) {
   placeContainer.prepend(cardEl);
 
   imageImput.value = '';
-  mestoImput.value = '';
+  mestoImput.value = ''; 
+
+  popupButtonAdd.classList.add('popup__button_disabled');
+  popupButtonAdd.disabled = true;
 
   closePopup(popupAdd);
 }
@@ -124,17 +132,36 @@ function getItem (item) {
   return newTemplate;
 }
 
-popupImageCloseButton.addEventListener('click', () => closePopup(popupImage));
-popupAddCloseButton.addEventListener('click', () => closePopup(popupAdd));
-popupEditCloseButton.addEventListener('click', () => closePopup(popupEdit));
+popups.forEach((popup) => {
+  popup.addEventListener('click', (evt) => {
+    if (evt.target.classList.contains('popup__overlay')) {
+      closePopup(popup)
+    };
+    if (evt.target.classList.contains('popup__cloce-icon')) {
+      closePopup(popup)
+    }
+  })
+})
+
+
+body.addEventListener('keydown', function (evt) {
+  if (evt.key === 'Escape') {
+    popupAdd.classList.remove('popup_open');
+    popupEdit.classList.remove('popup_open');
+    popupImage.classList.remove('popup_open');
+  };
+});
+
+
 formEdit.addEventListener('submit', handleEditFormSubmit);
 formAdd.addEventListener('submit', hanldleAddFormSubmit);
+
 addButton.addEventListener("click", () => openPopup(popupAdd));
 editButton.addEventListener('click', () => {
   nameInput.value = profileName.textContent;
   workInput.value = profileWork.textContent;
 
-  openPopup(popupEdit);
+  openPopup(popupEdit)
 });
 
 render();
