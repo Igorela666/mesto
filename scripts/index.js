@@ -46,10 +46,10 @@ const profileWork = document.querySelector('.profile__work');
 const mestoImput = document.querySelector('.popup__input_type_mesto');
 const imageImput = document.querySelector('.popup__input_type_image');
 
-const popupAdd = document.querySelector('.popup__add');
+const popupAdd = document.querySelector('.popup_add');
 const popupButtonAdd = popupAdd.querySelector('.popup__button')
-const popupEdit = document.querySelector('.popup__edit');
-const popupImage = document.querySelector('.popup__image');
+const popupEdit = document.querySelector('.popup_edit');
+const popupImage = document.querySelector('.popup_image');
 
 const placeContainer = document.querySelector('.place'); // контейнер для карточек
 const template = document.querySelector('.template').content; // карточка
